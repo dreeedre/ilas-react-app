@@ -4,15 +4,31 @@ import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import TextField from '@mui/material/TextField';
+import Cardslider from '../Components/Cardslider';
 
 export default function Dashboard() {
   return (
     <>
-      <Box sx={{ display: 'flex', height: '100vh', overflowY: 'auto' }}>
+      <Box
+        sx={{
+          display: 'flex',
+          height: '100vh',
+          overflowX: 'hidden',  // Prevent horizontal scrolling
+          overflowY: 'auto',  // Allow vertical scrolling
+        }}
+      >
         <Sidenav />
 
         {/* Main Dashboard content */}
-        <Box sx={{ flexGrow: 1, position: 'relative', margin: 0, padding: 0 }}>
+        <Box
+          sx={{
+            flexGrow: 1,
+            position: 'relative',
+            margin: 0,
+            padding: 0,
+            overflowX: 'hidden',  // Ensure no horizontal overflow within the main content
+          }}
+        >
           {/* Large container to allow scrolling */}
           <Box
             component="div"
@@ -22,6 +38,7 @@ export default function Dashboard() {
               position: 'relative',
               padding: '16px',
               boxSizing: 'border-box',
+              overflowX: 'hidden',  // Prevent horizontal scrolling in the container
             }}
           >
             {/* Cart Button */}
@@ -46,6 +63,7 @@ export default function Dashboard() {
                 width: '100%',
                 height: '400px',
                 marginBottom: '40px',
+                overflowX: 'hidden',
               }}
             >
               <img
@@ -62,6 +80,7 @@ export default function Dashboard() {
                 justifyContent: 'center',
                 alignItems: 'center',
                 marginTop: '200px',
+                overflowX: 'hidden',
               }}
             >
               <TextField
@@ -77,7 +96,14 @@ export default function Dashboard() {
             </Box>
 
             {/* Text Content */}
-            <Box sx={{ marginTop: '300px', textAlign: 'left', marginLeft: '20px' }}>
+            <Box
+              sx={{
+                marginTop: '300px',
+                textAlign: 'left',
+                marginLeft: '20px',
+                overflowX: 'hidden',
+              }}
+            >
               <h1 style={{ marginBottom: '5px', color: '#11326F' }}>WELCOME TO iLAS</h1>
               <p style={{ fontSize: '18px', marginBottom: '5px' }}>
                 iACADEMY's Library Management System (LMS)
@@ -90,7 +116,14 @@ export default function Dashboard() {
               </p>
 
               {/* New Arrivals Section */}
-              <Box sx={{ marginTop: '300px', textAlign: 'left', marginLeft: '20px' }}>
+              <Box
+                sx={{
+                  marginTop: '300px',
+                  textAlign: 'left',
+                  marginLeft: '20px',
+                  overflowX: 'hidden',
+                }}
+              >
                 <h1 style={{ marginBottom: '5px', color: '#11326F' }}>New Arrivals</h1>
 
                 {/* Centered Image Placeholder */}
@@ -103,6 +136,7 @@ export default function Dashboard() {
                     width: '100%',
                     marginTop: '20px',
                     marginBottom: '40px',
+                    overflowX: 'hidden',
                   }}
                 >
                   <Box
@@ -120,6 +154,9 @@ export default function Dashboard() {
                     />
                   </Box>
                 </Box>
+
+                {/* Add the CardSlider below New Arrivals */}
+                <Cardslider />
               </Box>
             </Box>
           </Box>
@@ -128,4 +165,3 @@ export default function Dashboard() {
     </>
   );
 }
-
