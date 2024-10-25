@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import CssBaseline from '@mui/material/CssBaseline';
 import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
@@ -13,7 +12,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import MenuBookRoundedIcon from '@mui/icons-material/MenuBookRounded';
 import ClassRoundedIcon from '@mui/icons-material/ClassRounded';
@@ -47,7 +45,7 @@ const DrawerHeader = styled('div')(({ theme }) => ({
   alignItems: 'center',
   padding: theme.spacing(0, 1),
   ...theme.mixins.toolbar,
-  justifyContent: 'flex-end',
+  justifyContent: 'space-between', // Adjusted for spacing
 }));
 
 export default function Sidenav() {
@@ -66,7 +64,7 @@ export default function Sidenav() {
             width: drawerWidth,
             boxSizing: 'border-box',
             backgroundColor: '#11326F', // Set drawer color
-            color: '#fff', //Optional: set text color for better contrast
+            color: '#fff', // Optional: set text color for better contrast
           },
         }}
         variant="persistent"
@@ -74,41 +72,59 @@ export default function Sidenav() {
         open={open}
       >
         <DrawerHeader>
+          {/* Small Image Placeholder */}
+          <Box
+            sx={{
+              width: '120px', // Adjust size of the image
+              height: '40px', // Adjust size of the image
+              marginLeft: '8px',
+              borderRadius: '4px',
+              overflow: 'hidden',
+            }}
+          >
+            <img
+              src="/img/iAc2.png" // Replace with your placeholder image path
+              alt="Small Placeholder"
+              style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          </Box>
+
+          {/* Left Arrow Icon */}
           <IconButton onClick={() => setOpen(false)}>
             {theme.direction === 'ltr' ? <ChevronLeftIcon style={{ color: '#fff' }} /> : <ChevronRightIcon />}
           </IconButton>
         </DrawerHeader>
         <Divider />
         <List>
-        <ListItem disablePadding onClick={() => {navigate("/")}}> 
-         <ListItemButton>
-           <ListItemIcon>
-             <HomeRoundedIcon style={{ color: '#fff' }} /> {/* Set the icon color to white */}
-               </ListItemIcon>
+          <ListItem disablePadding onClick={() => { navigate("/") }}> 
+            <ListItemButton>
+              <ListItemIcon>
+                <HomeRoundedIcon style={{ color: '#fff' }} /> {/* Set the icon color to white */}
+              </ListItemIcon>
               <ListItemText primary="Dashboard" />
             </ListItemButton>
           </ListItem>
           {/* Additional List Items */}
-          <ListItem disablePadding onClick={() => {navigate("/elibrary")}}>
+          <ListItem disablePadding onClick={() => { navigate("/elibrary") }}>
             <ListItemButton>
               <ListItemIcon>
-                <MenuBookRoundedIcon style={{ color: '#fff' }}/>
+                <MenuBookRoundedIcon style={{ color: '#fff' }} />
               </ListItemIcon>
               <ListItemText primary="E-library" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding onClick={() => {navigate("/booktracker")}}>
+          <ListItem disablePadding onClick={() => { navigate("/booktracker") }}>
             <ListItemButton>
               <ListItemIcon>
-                <ClassRoundedIcon style={{ color: '#fff' }}/>
+                <ClassRoundedIcon style={{ color: '#fff' }} />
               </ListItemIcon>
               <ListItemText primary="Book Tracker" />
             </ListItemButton>
           </ListItem>
-          <ListItem disablePadding onClick={() => {navigate("/rules")}}>
+          <ListItem disablePadding onClick={() => { navigate("/rules") }}>
             <ListItemButton>
               <ListItemIcon>
-                <FormatListBulletedRoundedIcon style={{ color: '#fff' }}/>
+                <FormatListBulletedRoundedIcon style={{ color: '#fff' }} />
               </ListItemIcon>
               <ListItemText primary="Rules & Regulations" />
             </ListItemButton>
